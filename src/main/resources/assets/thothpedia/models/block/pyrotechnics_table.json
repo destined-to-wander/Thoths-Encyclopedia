@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "thothpedia:block/pyrotechnics_table_side1",
+    "down":     "thothpedia:block/pyrotechnics_table_bottom",
+    "up":       "thothpedia:block/pyrotechnics_table_top",
+    "north":    "thothpedia:block/pyrotechnics_table_side",
+    "east":     "thothpedia:block/pyrotechnics_table_side3",
+    "south":    "thothpedia:block/pyrotechnics_table_side1",
+    "west":     "thothpedia:block/pyrotechnics_table_side2"
+  }
+}

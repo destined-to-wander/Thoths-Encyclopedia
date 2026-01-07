@@ -1,0 +1,14 @@
+{
+  "item.thothpedia.iron_rapier": "Iron Rapier",
+  "item.thothpedia.gold_rapier": "Gold Rapier",
+  "item.thothpedia.diamond_rapier": "Diamond Rapier",
+  "item.thothpedia.netherite_rapier": "Netherite Rapier",
+
+  "block.thothpedia.pyrotechnics_table": "Pyrotechnics Table",
+  "itemgroup.thothpedia": "Thoth's Encyclopedia",
+  "container.pyrotechnics_table": "Pyrotechnics Table",
+
+  "enchantment.minecraft.reelback": "Reelback",
+
+  "item.thothpedia.halberd.tooltip": "Reach +1"
+}

@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "thothpedia",
+	"version": "${version}",
+	"name": "Thoth's Encyclopedia",
+	"description": "Various reworks and additions for a more Vanilla+ Minecraft",
+	"authors": [
+		"PrinceDest1ny"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/thothpedia/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.dest1ny.ThothsEncyclopedia"
+		],
+		"client": [
+			"com.dest1ny.ThothsEncyclopediaClient"
+		]
+	},
+	"mixins": [
+		"thothpedia.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"fabric-api": ">=0.92.0+1.20.1"
+	},
+	"jars": [
+		{
+			"file": "META-INF/jars/reach-entity-attributes-2.4.0.jar"
+		}
+	]
+}

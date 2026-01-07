@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "thothpedia:item/diamond_halberd_inventory"
+  }
+}
