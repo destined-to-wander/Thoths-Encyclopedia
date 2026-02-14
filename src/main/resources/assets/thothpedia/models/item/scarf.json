@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thothpedia:item/scarf"
+  },
+  "overrides": [
+    {
+      "predicate": { "custom_model_data": 1 },
+      "model": "thothpedia:item/scarf_body"
+    },
+    {
+      "predicate": { "custom_model_data": 2 },
+      "model": "thothpedia:item/scarf_neck"
+    }
+  ]
+}

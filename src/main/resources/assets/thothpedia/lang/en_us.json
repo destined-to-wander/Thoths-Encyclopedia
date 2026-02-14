@@ -1,14 +1,52 @@
 {
+  "itemgroup.thothpedia": "Thoth's Encyclopedia",
+
   "item.thothpedia.iron_rapier": "Iron Rapier",
-  "item.thothpedia.gold_rapier": "Gold Rapier",
+  "item.thothpedia.golden_rapier": "Golden Rapier",
   "item.thothpedia.diamond_rapier": "Diamond Rapier",
   "item.thothpedia.netherite_rapier": "Netherite Rapier",
+  "item.thothpedia.diamond_halberd": "Diamond Halberd",
+  "item.thothpedia.iron_halberd": "Iron Halberd",
+  "item.thothpedia.golden_halberd": "Golden Halberd",
+  "item.thothpedia.netherite_halberd": "Netherite Halberd",
+
+  "item.thothpedia.wanderers_helmet": "Wanderer's Helm",
+  "item.thothpedia.wanderers_chestplate": "Wanderer's Brigandine",
+  "item.thothpedia.wanderers_leggings": "Wanderer's Cuisses",
+  "item.thothpedia.wanderers_boots": "Wanderer's Greaves",
+
+  "item.thothpedia.scarf": "Scarf",
+  "item.thothpedia.quiver": "Quiver",
+  "item.thothpedia.knapsack": "Knapsack",
+  "item.thothpedia.crafting_expander": "Crafting Expander",
+
+  "item.thothpedia.halberd.tooltip": "Reach +1",
+  "item.thothpedia.knapsack.tooltip": "Can't be removed if there are items inside",
 
   "block.thothpedia.pyrotechnics_table": "Pyrotechnics Table",
-  "itemgroup.thothpedia": "Thoth's Encyclopedia",
-  "container.pyrotechnics_table": "Pyrotechnics Table",
+  "block.thothpedia.kiln": "Kiln",
 
-  "enchantment.minecraft.reelback": "Reelback",
+  "block.thothpedia.frostbark_door": "Frostbark Door",
+  "block.thothpedia.frostbark_fence": "Frostbark Fence",
+  "block.thothpedia.frostbark_fence_gate": "Frostbark Fence Gate",
+  "block.thothpedia.frostbark_hanging_sign": "Frostbark Hanging Sign",
+  "block.thothpedia.frostbark_leaves": "Frostbark Leaves",
+  "block.thothpedia.frostbark_log": "Frostbark Log",
+  "block.thothpedia.frostbark_planks": "Frostbark Planks",
+  "block.thothpedia.frostbark_pressure_plate": "Frostbark Pressure Plate",
+  "block.thothpedia.frostbark_sapling": "Frostbark Sapling",
+  "block.thothpedia.frostbark_sign": "Frostbark Sign",
+  "block.thothpedia.frostbark_slab": "Frostbark Slab",
+  "block.thothpedia.frostbark_stairs": "Frostbark Stairs",
+  "block.thothpedia.frostbark_trapdoor": "Frostbark Trapdoor",
+  "block.thothpedia.frostbark_wall_hanging_sign": "Frostbark Wall Hanging Sign",
+  "block.thothpedia.frostbark_wall_sign": "Frostbark Wall Sign",
+  "block.thothpedia.frostbark_wood": "Frostbark Wood",
 
-  "item.thothpedia.halberd.tooltip": "Reach +1"
+  "thothpedia.container.pyrotechnics_table": "Pyrotechnics Table",
+  "thothpedia.container.kiln": "Kiln",
+  "thothpedia.container.knapsack": "Knapsack",
+
+  "gui.recipebook.toggleRecipes.fired": "Showing Fireable"
+
 }

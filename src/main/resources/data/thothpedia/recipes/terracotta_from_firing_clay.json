@@ -1,0 +1,12 @@
+{
+  "type": "thothpedia:firing",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "coal",
+  "ingredient": {
+    "item": "minecraft:clay"
+  },
+  "result": "minecraft:terracotta"
+
+}

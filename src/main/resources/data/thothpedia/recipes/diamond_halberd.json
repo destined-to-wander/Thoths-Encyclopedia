@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "minecraft:diamond_axe"
+    },
+    "H": {
+      "item": "minecraft:diamond_hoe"
+    }
+  },
+  "pattern": [
+    "IAH",
+    "I# ",
+    " # "
+  ],
+  "result": {
+    "item": "thothpedia:diamond_halberd"
+  },
+  "show_notification": true
+}

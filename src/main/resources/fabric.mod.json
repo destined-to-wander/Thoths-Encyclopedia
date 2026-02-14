@@ -5,30 +5,41 @@
 	"name": "Thoth's Encyclopedia",
 	"description": "Various reworks and additions for a more Vanilla+ Minecraft",
 	"authors": [
-		"PrinceDest1ny"
+		"DestinedToWander"
 	],
 	"license": "CC0-1.0",
 	"icon": "assets/thothpedia/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.dest1ny.ThothsEncyclopedia"
+			"com.destinedtowander.ThothsEncyclopedia"
 		],
 		"client": [
-			"com.dest1ny.ThothsEncyclopediaClient"
+			"com.destinedtowander.ThothsEncyclopediaClient"
+		],
+		"fabric-datagen": [
+			"com.destinedtowander.common.datagen.ThothsEncyclopediaDataGenerator"
+		],
+		"mm:early_risers": [
+			"com.destinedtowander.ThothsEncyclopediaASM"
+		],
+		"cardinal-components": [
+			"com.destinedtowander.common.index.ModComponents"
 		]
 	},
 	"mixins": [
 		"thothpedia.mixins.json"
 	],
+	"custom": {
+		"cardinal-components": [
+			"thothpedia:knapsack"
+		]
+	},
+	"accessWidener": "thothpedia.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.20.1",
-		"fabric-api": ">=0.92.0+1.20.1"
-	},
-	"jars": [
-		{
-			"file": "META-INF/jars/reach-entity-attributes-2.4.0.jar"
-		}
-	]
+		"minecraft": "1.20.1",
+		"fabric-api": ">=0.92.0+1.20.1",
+		"trinkets" : ">=3.7.2"
+	}
 }

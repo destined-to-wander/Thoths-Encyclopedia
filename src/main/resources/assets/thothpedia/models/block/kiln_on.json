@@ -1,0 +1,19 @@
+{
+  "parent": "minecraft:block/cube",
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [ 0, 135, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  },
+  "textures": {
+    "particle": "thothpedia:block/kiln_side",
+    "down": "thothpedia:block/kiln_bottom",
+    "up": "thothpedia:block/kiln_top",
+    "north": "thothpedia:block/kiln_front_on",
+    "south": "thothpedia:block/kiln_back",
+    "east": "thothpedia:block/kiln_side",
+    "west": "thothpedia:block/kiln_side"
+  }
+}

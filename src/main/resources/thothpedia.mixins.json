@@ -1,18 +1,24 @@
 {
 	"required": true,
-	"package": "com.dest1ny.mixin",
+	"package": "com.destinedtowander.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"TridentItemMixin",
-
-		"AnvilScreenHandlerMixin",
 
 		"LivingEntityMixin",
 		"TridentEntityMixin",
 		"PlayerEntityMixin",
 		"ExperienceOrbEntityMixin",
 
-		"ProtectionEnchantmentMixin"
+		"RecipeBookOptionsMixin",
+
+		"RaiderEntityMixin",
+		"HostileEntityMixin",
+
+		"SlotMixin",
+
+		"inventory.InventoryScreenMixin",
+		"inventory.PlayerScreenHandlerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

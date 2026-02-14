@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:white_wool"
+    },
+    "-": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "##-"
+  ],
+  "result": {
+    "item": "thothpedia:scarf"
+  },
+  "show_notification": true
+}

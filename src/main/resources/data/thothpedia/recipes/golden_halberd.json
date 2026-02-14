@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "A": {
+      "item": "minecraft:golden_axe"
+    },
+    "H": {
+      "item": "minecraft:golden_hoe"
+    }
+  },
+  "pattern": [
+    "IAH",
+    "I# ",
+    " # "
+  ],
+  "result": {
+    "item": "thothpedia:golden_halberd"
+  },
+  "show_notification": true
+}
