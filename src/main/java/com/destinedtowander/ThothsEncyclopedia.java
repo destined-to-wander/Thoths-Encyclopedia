@@ -23,7 +23,6 @@ public class ThothsEncyclopedia implements ModInitializer {
     //public static final Logger LOGGER = LoggerFactory.getLogger("Thothpedia");
 	public static final String MOD_ID = "thothpedia";
 
-
 	public static Identifier id(String path) {
 		return new Identifier(MOD_ID, path);
 	}

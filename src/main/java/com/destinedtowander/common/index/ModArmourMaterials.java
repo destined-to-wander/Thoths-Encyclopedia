@@ -15,10 +15,10 @@ import java.util.function.Supplier;
 
 public enum ModArmourMaterials implements StringIdentifiable, ArmorMaterial {
     WANDERER("wanderer", 37, Util.make(new EnumMap(ArmorItem.Type.class), map -> {
-        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
-        map.put(ArmorItem.Type.HELMET, 2);
+        map.put(ArmorItem.Type.HELMET, 3);
     }), 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.5F, 0.0F, () -> Ingredient.ofItems(Items.PHANTOM_MEMBRANE));
 
     private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY = Util.make(new EnumMap(ArmorItem.Type.class), map -> {

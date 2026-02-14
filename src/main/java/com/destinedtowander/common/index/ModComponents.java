@@ -1,6 +1,7 @@
 package com.destinedtowander.common.index;
 
 import com.destinedtowander.common.cca.KnapsackComponent;
+import com.destinedtowander.common.cca.WanderersComponent;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
@@ -12,9 +13,11 @@ import static com.destinedtowander.ThothsEncyclopedia.id;
 
 public class ModComponents implements EntityComponentInitializer {
     public static final ComponentKey<KnapsackComponent> KNAPSACK_COMPONENT = ComponentRegistry.getOrCreate(id("knapsack"), KnapsackComponent.class);
+    public static final ComponentKey<WanderersComponent> WANDERER_COMPONENT = ComponentRegistry.getOrCreate(id("wanderers"), WanderersComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.beginRegistration(PlayerEntity.class, KNAPSACK_COMPONENT).respawnStrategy(RespawnCopyStrategy.CHARACTER).end(KnapsackComponent::new);
+        registry.beginRegistration(PlayerEntity.class, WANDERER_COMPONENT).respawnStrategy(RespawnCopyStrategy.NEVER_COPY).end(WanderersComponent::new);
     }
 }

@@ -14,14 +14,14 @@ import static com.destinedtowander.common.index.ModItems.INCLUDE_ITEMGROUP;
 
 public class ModItemGroup {
     public static final ItemGroup THOTHPEDIA = Registry.register(Registries.ITEM_GROUP,
-            id("thothpedia"),
-            FabricItemGroup.builder()
-                    .displayName(Text.translatable("itemgroup.thothpedia"))
-                    .icon(() -> new ItemStack(ModItems.DIAMOND_RAPIER))
-                    .entries((displayContext, entries) -> {
-                        entries.addAll(INCLUDE_ITEMGROUP.stream().map(Item::getDefaultStack).toList());
-                        entries.addAll(BLOCKITEMS.stream().map(Item::getDefaultStack).toList());
-                    }).build());
+        id("thothpedia"),
+        FabricItemGroup.builder()
+            .displayName(Text.translatable("itemgroup.thothpedia"))
+            .icon(() -> new ItemStack(ModItems.DIAMOND_RAPIER))
+            .entries((displayContext, entries) -> {
+                entries.addAll(INCLUDE_ITEMGROUP.stream().map(Item::getDefaultStack).toList());
+                entries.addAll(BLOCKITEMS.stream().map(Item::getDefaultStack).toList());
+            }).build());
 
     public static void register(){}
 }

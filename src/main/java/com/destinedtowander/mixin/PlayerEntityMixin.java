@@ -1,9 +1,11 @@
 package com.destinedtowander.mixin;
 
 import com.destinedtowander.common.cca.KnapsackComponent;
+import com.destinedtowander.common.index.ModComponents;
 import com.destinedtowander.common.items.HalberdItem;
 import com.destinedtowander.common.items.RapierItem;
 import com.destinedtowander.client.particle.ModParticles;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -307,5 +309,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 cir.cancel();
             }
         }
+    }
+
+    @ModifyReturnValue(method = "getOffGroundSpeed", at = @At("RETURN"))
+    public float airSpeed(float original) {
+        if(this.getComponent(ModComponents.WANDERER_COMPONENT).hasSetBonus()) return original * 2.0F;
+        return original;
     }
 }

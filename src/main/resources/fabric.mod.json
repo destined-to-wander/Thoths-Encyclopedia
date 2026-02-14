@@ -32,7 +32,8 @@
 	],
 	"custom": {
 		"cardinal-components": [
-			"thothpedia:knapsack"
+			"thothpedia:knapsack",
+			"thothpedia:wanderer"
 		]
 	},
 	"accessWidener": "thothpedia.accesswidener",
