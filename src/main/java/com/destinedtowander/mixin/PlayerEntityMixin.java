@@ -34,6 +34,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.objectweb.asm.Opcodes;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -51,18 +52,21 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(type, world);
     }
 
+    @Final
     @Shadow
-    public PlayerInventory inventory;
+    private PlayerInventory inventory;
 
+    @Final
     @Shadow
-    public PlayerAbilities abilities;
+    private PlayerAbilities abilities;
 
     @Unique
     private boolean sweepAttack;
 
+    @Unique
     public void manualKnockback(float strength, Entity target, Vec3d originalMovement){
         if (target instanceof LivingEntity livingEntity) {
-            strength *= 1.0 - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE);
+            strength *= (float) (1.0F - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
         }
 
         Vec3d knockback = new Vec3d(
@@ -77,6 +81,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         target.velocityModified = true;
     }
 
+    @Unique
     public void spawnLungeAttackParticles() {
         double d = -MathHelper.sin(this.getYaw() * ((float)Math.PI / 180));
         double e = MathHelper.cos(this.getYaw() * ((float)Math.PI / 180));
@@ -264,22 +269,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
     }
 
-    @Inject(method = "dropInventory", at = @At(
-        value = "INVOKE",
-        target = "Lnet/minecraft/entity/player/PlayerInventory;dropAll()V"
-    ))
-    private void dropKnapsack(CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity)(Object)this;
-        SimpleInventory knapsack = KnapsackComponent.getInventory(player);
-        for (int i = 0; i < knapsack.size(); i++) {
-            ItemStack itemStack = knapsack.stacks.get(i);
-            if (!itemStack.isEmpty()) {
-                player.dropItem(itemStack, true, false);
-                knapsack.stacks.set(i, ItemStack.EMPTY);
-            }
-        }
-    }
-
     @Inject(method = "getProjectileType", at = @At("HEAD"))
     public void getProjectileType(ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
         if (FabricLoader.getInstance().isModLoaded("enchancement")) return;
@@ -309,11 +298,5 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 cir.cancel();
             }
         }
-    }
-
-    @ModifyReturnValue(method = "getOffGroundSpeed", at = @At("RETURN"))
-    public float airSpeed(float original) {
-        if(this.getComponent(ModComponents.WANDERER_COMPONENT).hasSetBonus()) return original * 2.0F;
-        return original;
     }
 }

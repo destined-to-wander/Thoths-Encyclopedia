@@ -13,7 +13,7 @@ import static com.destinedtowander.ThothsEncyclopedia.id;
 
 public class ModComponents implements EntityComponentInitializer {
     public static final ComponentKey<KnapsackComponent> KNAPSACK_COMPONENT = ComponentRegistry.getOrCreate(id("knapsack"), KnapsackComponent.class);
-    public static final ComponentKey<WanderersComponent> WANDERER_COMPONENT = ComponentRegistry.getOrCreate(id("wanderers"), WanderersComponent.class);
+    public static final ComponentKey<WanderersComponent> WANDERER_COMPONENT = ComponentRegistry.getOrCreate(id("wanderer"), WanderersComponent.class);
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {

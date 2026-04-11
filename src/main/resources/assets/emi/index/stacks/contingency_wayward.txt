@@ -1,0 +1,8 @@
+{
+  "filters": [
+    "/thothpedia:wayward/",
+    "/thothpedia:sculk/",
+    "/thothpedia:wanderers/"
+  ],
+  "disable":true
+}

@@ -19,7 +19,6 @@ import java.util.UUID;
 public class HalberdItem extends ToolItem implements Vanishable{
     private static final EntityAttributeModifier REACH_MODIFIER = new EntityAttributeModifier(UUID.fromString("911af262-067d-4da2-854c-20f03cc2dd8b"), "Weapon modifier", 1, EntityAttributeModifier.Operation.ADDITION);
 
-    private final float attackDamage;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     @Override
@@ -35,11 +34,11 @@ public class HalberdItem extends ToolItem implements Vanishable{
 
     public HalberdItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, settings);
-        this.attackDamage = (float)attackDamage + material.getAttackDamage();
+        float attackDamage1 = (float) attackDamage + material.getAttackDamage();
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(
             EntityAttributes.GENERIC_ATTACK_DAMAGE,
-            new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION)
+            new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", attackDamage1, EntityAttributeModifier.Operation.ADDITION)
         );
         builder.put(
             EntityAttributes.GENERIC_ATTACK_SPEED,

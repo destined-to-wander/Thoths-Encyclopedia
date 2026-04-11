@@ -22,8 +22,10 @@ import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -36,18 +38,24 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
     public PlayerScreenHandlerMixin(ScreenHandlerType<?> screenHandlerType, int i) {
         super(screenHandlerType, i);
     }
+    @Unique
     private final RecipeInputInventory expansionInput = new CraftingInventory(this, 3, 3);
+    @Unique
     private final CraftingResultInventory expansionResult = new CraftingResultInventory();
 
+    @Final
     @Shadow
-    PlayerEntity owner;
+    private PlayerEntity owner;
 
+    @Final
     @Shadow
-    RecipeInputInventory craftingInput;
+    private RecipeInputInventory craftingInput;
 
+    @Final
     @Shadow
-    CraftingResultInventory craftingResult;
+    private CraftingResultInventory craftingResult;
 
+    @Unique
     int expansionResultSlot;
 
     @Inject(method = "<init>", at = @At("RETURN"))
@@ -74,19 +82,18 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
         }
 
         SimpleInventory knapsack = KnapsackComponent.getInventory(this.owner);
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < knapsack.size()/2; j++)
-                this.addSlot(new KnapsackSlot(knapsack, j + i * knapsack.size()/2, 8 + j * 18, i * 18 - 46) {
-                    @Override
-                    public boolean isEnabled() {
-                        Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(playerInventory.player);
-                        return component.map(trinketComponent -> trinketComponent.isEquipped(ModItems.KNAPSACK)).orElse(false);
-                    }
-                });
+        for (int i = 0; i < 2; i++) for (int j = 0; j < knapsack.size()/2; j++)
+            this.addSlot(new KnapsackSlot(knapsack, j + i * knapsack.size()/2, 8 + j * 18, i * 18 + 188) {
+                @Override
+                public boolean isEnabled() {
+                    Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(playerInventory.player);
+                    return component.map(trinketComponent -> trinketComponent.isEquipped(ModItems.KNAPSACK)).orElse(false);
+                }
+            });
     }
 
     @Override
-    public void dropCraftingSlots(PlayerEntity player){
+    public void thoths_Encyclopedia$dropCraftingSlots(PlayerEntity player){
         this.expansionResult.clear();
         this.craftingResult.clear();
         if (!player.getWorld().isClient) {
@@ -101,7 +108,7 @@ public abstract class PlayerScreenHandlerMixin extends AbstractRecipeScreenHandl
         this.expansionInput.clear();
     }
 
-    @Inject(method = "matches", at = @At("HEAD"))
+    @Inject(method = "matches", at = @At("HEAD"), cancellable = true)
     public void expansionMatches(Recipe<? super RecipeInputInventory> recipe, CallbackInfoReturnable<Boolean> CiR) {
         if (recipe.matches(this.expansionInput, this.owner.getWorld()))
             CiR.setReturnValue(recipe.matches(this.expansionInput, this.owner.getWorld()));

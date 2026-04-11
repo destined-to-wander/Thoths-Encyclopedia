@@ -47,7 +47,13 @@ repositories {
 	maven { url "https://mvn.devos.one/releases/" }
 
 	// Mod Menu, EMI, Trinkets
-	maven { url "https://maven.terraformersmc.com/releases/" }
+	maven { url "https://maven.terraformersmc.com/releases"}
+
+	/* terraform api
+	maven {
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/'
+	}//*/
 
 	// Datasync
 	maven { url = "https://maven.uuid.gg/releases" }
@@ -99,6 +105,7 @@ dependencies {
 
 	// Jar-in-Jar
 	include modApi("io.github.fabricators_of_create.Porting-Lib:recipe_book_categories:$port_lib_version")
+	//include modApi("io.github.fabricators_of_create.Porting-Lib:attributes:$port_lib_version")
 	include modApi("com.jamieswhiteshirt:reach-entity-attributes:${reach_entity_attributes_version}")
 	include(modImplementation("com.github.Chocohead:Fabric-ASM:${fabric_asm_version}")) {
 		exclude (group: "net.fabricmc.fabric-api")
@@ -107,6 +114,7 @@ dependencies {
 	include modApi("maven.modrinth:midnightlib:${midnightlib_version}")
 	include modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cardinal_components_version}")
 	include modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-item:${cardinal_components_version}")
+	//include modApi("com.terraformersmc.terraform-api:terraform-wood-api-v1:${terraform_wood_api_version}")
 
 	// compat
 	//*
@@ -118,6 +126,9 @@ dependencies {
 	}
 	//*/
 
+	modCompileOnly("dev.emi:emi-fabric:${emi_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 	modCompileOnly("dev.emi:emi-fabric:${emi_version}:api") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
@@ -126,6 +137,27 @@ dependencies {
     modLocalRuntime("dev.emi:emi-fabric:${emi_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }//*/
+
+	// amarite
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-block:${cardinal_components_version}"
+
+	//*/
+	modCompileOnly files('libs/amarite.jar')
+	/*/
+	modImplementation files('libs/amarite.jar')
+	//*/
+
+	/*/
+	modCompileOnly files('libs/coffins.jar')
+	/*/
+	modImplementation files('libs/coffins.jar')
+	//*/
+
+	//*/
+	modCompileOnly files('libs/copperpipes.jar')
+	/*/
+	modImplementation files('libs/copperpipes.jar')
+	//*/
 
 	// enchancement
 	modImplementation "maven.modrinth:enchancement:${enchancement_version}"

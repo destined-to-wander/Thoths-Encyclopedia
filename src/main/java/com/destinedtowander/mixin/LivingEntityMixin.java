@@ -14,12 +14,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity{
+public abstract class LivingEntityMixin extends Entity {
+	@Unique
 	int riptideLevelForGrace = 4; // for config when I eventually add it
 
 	public LivingEntityMixin(EntityType<? extends LivingEntity> type, World world) {

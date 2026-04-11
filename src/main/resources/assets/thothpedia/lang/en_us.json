@@ -10,21 +10,56 @@
   "item.thothpedia.golden_halberd": "Golden Halberd",
   "item.thothpedia.netherite_halberd": "Netherite Halberd",
 
-  "item.thothpedia.wanderers_helmet": "Wanderer's Helm",
+  "item.thothpedia.wanderers_helmet": "Wanderer's Scarf",
   "item.thothpedia.wanderers_chestplate": "Wanderer's Brigandine",
   "item.thothpedia.wanderers_leggings": "Wanderer's Cuisses",
   "item.thothpedia.wanderers_boots": "Wanderer's Greaves",
+
+  "item.thothpedia.wanderers_sword": "Wanderer's Blade",
+
+  "item.thothpedia.wanderers_sword.parry_desc": "Can parry attacks to negate all damage dealt.",
+  "item.thothpedia.wanderers_sword.desc": "After parry window can block attacks to negate half the damage dealt.",
 
   "item.thothpedia.scarf": "Scarf",
   "item.thothpedia.quiver": "Quiver",
   "item.thothpedia.knapsack": "Knapsack",
   "item.thothpedia.crafting_expander": "Crafting Expander",
 
+  "item.thothpedia.raw_sculksteel": "Raw Sculksteel",
+  "item.thothpedia.sculksteel_ingot": "Sculksteel Ingot",
+  "item.thothpedia.wayward_cloth": "Wayward Cloth",
+  "item.thothpedia.wayward_medley": "Wayward Medley",
+
   "item.thothpedia.halberd.tooltip": "Reach +1",
   "item.thothpedia.knapsack.tooltip": "Can't be removed if there are items inside",
 
+  "item.thothpedia.wanderer_chestplate_desc": "Increases air speed by 60%.",
+  "item.thothpedia.set_bonus" : "Set Bonus:",
+  "item.thothpedia.wanderer_slow_falling" : "Reworks Slow Falling Effect to fall slower when holding jump and faster when sneaking.",
+
   "block.thothpedia.pyrotechnics_table": "Pyrotechnics Table",
   "block.thothpedia.kiln": "Kiln",
+  "block.thothpedia.sculk_charged_amalgam": "Sculk-charged Amalgam",
+
+  "block.thothpedia.cinnamon_planks": "Cinnamon Planks",
+  "block.thothpedia.cinnamon_log": "Cinnamon Log",
+  "block.thothpedia.cinnamon_wood": "Cinnamon Wood",
+  "block.thothpedia.stripped_cinnamon_log": "Stripped Cinnamon Log",
+  "block.thothpedia.stripped_cinnamon_wood": "Stripped Cinnamon Wood",
+  "block.thothpedia.cinnamon_button": "Cinnamon Button",
+  "block.thothpedia.cinnamon_door": "Cinnamon Door",
+  "block.thothpedia.cinnamon_fence": "Cinnamon Fence",
+  "block.thothpedia.cinnamon_fence_gate": "Cinnamon Fence Gate",
+  "block.thothpedia.cinnamon_hanging_sign": "Cinnamon Hanging Sign",
+  "block.thothpedia.cinnamon_leaves": "Cinnamon Leaves",
+  "block.thothpedia.cinnamon_pressure_plate": "Cinnamon Pressure Plate",
+  "block.thothpedia.cinnamon_sapling": "Cinnamon Sapling",
+  "block.thothpedia.cinnamon_sign": "Cinnamon Sign",
+  "block.thothpedia.cinnamon_slab": "Cinnamon Slab",
+  "block.thothpedia.cinnamon_stairs": "Cinnamon Stairs",
+  "block.thothpedia.cinnamon_trapdoor": "Cinnamon Trapdoor",
+  "block.thothpedia.cinnamon_wall_hanging_sign": "Cinnamon Wall Hanging Sign",
+  "block.thothpedia.cinnamon_wall_sign": "Cinnamon Wall Sign",
 
   "block.thothpedia.frostbark_door": "Frostbark Door",
   "block.thothpedia.frostbark_fence": "Frostbark Fence",
@@ -43,10 +78,32 @@
   "block.thothpedia.frostbark_wall_sign": "Frostbark Wall Sign",
   "block.thothpedia.frostbark_wood": "Frostbark Wood",
 
+  "block.thothpedia.amethine_door": "Amethine Door",
+  "block.thothpedia.amethine_fence": "Amethine Fence",
+  "block.thothpedia.amethine_fence_gate": "Amethine Fence Gate",
+  "block.thothpedia.amethine_hanging_sign": "Amethine Hanging Sign",
+  "block.thothpedia.amethine_leaves": "Amethine Leaves",
+  "block.thothpedia.amethine_log": "Amethine Log",
+  "block.thothpedia.amethine_planks": "Amethine Planks",
+  "block.thothpedia.amethine_pressure_plate": "Amethine Pressure Plate",
+  "block.thothpedia.amethine_sapling": "Amethine Sapling",
+  "block.thothpedia.amethine_sign": "Amethine Sign",
+  "block.thothpedia.amethine_slab": "Amethine Slab",
+  "block.thothpedia.amethine_stairs": "Amethine Stairs",
+  "block.thothpedia.amethine_trapdoor": "Amethine Trapdoor",
+  "block.thothpedia.amethine_wall_hanging_sign": "Amethine Wall Hanging Sign",
+  "block.thothpedia.amethine_wall_sign": "Amethine Wall Sign",
+  "block.thothpedia.amethine_wood": "Amethine Wood",
+
   "thothpedia.container.pyrotechnics_table": "Pyrotechnics Table",
   "thothpedia.container.kiln": "Kiln",
   "thothpedia.container.knapsack": "Knapsack",
 
-  "gui.recipebook.toggleRecipes.fired": "Showing Fireable"
+  "gui.recipebook.toggleRecipes.fired": "Showing Fireable",
 
+  "subtitles.item.thothpedia.sword_parry": "Sword parries damage",
+  "subtitles.item.thothpedia.sword_block": "Sword blocks damage",
+
+  "emi.category.thothpedia.firework_star_crafting": "Firework Star Crafting",
+  "emi.category.thothpedia.firing": "Firing"
 }

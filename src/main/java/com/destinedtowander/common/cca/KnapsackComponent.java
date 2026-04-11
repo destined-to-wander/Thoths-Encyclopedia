@@ -32,14 +32,6 @@ public class KnapsackComponent extends InventoryExpansionComponent {
         return true;
     }
 
-    public static ItemStack getStack(PlayerEntity player, int slot) {
-        return ModComponents.KNAPSACK_COMPONENT.get(player).getStack(slot);
-    }
-
-    public static boolean setStack(PlayerEntity player, ItemStack itemStack, int slot) {
-        return ModComponents.KNAPSACK_COMPONENT.get(player).setStack(itemStack, slot);
-    }
-
     public static SimpleInventory getInventory(PlayerEntity player) {
         return ModComponents.KNAPSACK_COMPONENT.get(player).getInventory();
     }

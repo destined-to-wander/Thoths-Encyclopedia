@@ -2,9 +2,11 @@ package com.destinedtowander.common.index;
 
 import com.destinedtowander.common.items.*;
 import dev.emi.trinkets.api.TrinketItem;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,13 @@ public class ModItems {
     public static final Item WANDERERS_CHESTPLATE;
     public static final Item WANDERERS_LEGGINGS;
     public static final Item WANDERERS_BOOTS;
+    public static final Item WANDERERS_SWORD;
+    public static final Item RAW_SCULKSTEEL;
+    public static final Item SCULKSTEEL_INGOT;
+    public static final Item WAYWARD_MEDLEY;
+    public static final Item WAYWARD_CLOTH;
+    public static final Item CINNAMON_HANGING_SIGN;
+    public static final Item CINNAMON_SIGN;
 
     static {
         // Weapons
@@ -62,18 +71,12 @@ public class ModItems {
         DIAMOND_HALBERD = registerHalberd("diamond_halberd", ToolMaterials.DIAMOND, new Item.Settings());
         NETHERITE_HALBERD = registerHalberd("netherite_halberd", ToolMaterials.NETHERITE, new Item.Settings().fireproof());
 
-        // Armor
-        WANDERERS_HELMET = registerItemExcludeGroup("wanderers_helmet",
-            new ArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.HELMET, new Item.Settings())
+        // Wood sets
+        CINNAMON_HANGING_SIGN = registerItem("cinnamon_hanging_sign",
+            new HangingSignItem(ModBlocks.CINNAMON_HANGING_SIGN,ModBlocks.CINNAMON_WALL_HANGING_SIGN, new Item.Settings().maxCount(16))
         );
-        WANDERERS_CHESTPLATE = registerItemExcludeGroup("wanderers_chestplate",
-            new ArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.CHESTPLATE, new Item.Settings())
-        );
-        WANDERERS_LEGGINGS = registerItemExcludeGroup("wanderers_leggings",
-            new ArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.LEGGINGS, new Item.Settings())
-        );
-        WANDERERS_BOOTS = registerItemExcludeGroup("wanderers_boots",
-            new ArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.BOOTS, new Item.Settings())
+        CINNAMON_SIGN = registerItem("cinnamon_sign",
+            new SignItem(new Item.Settings().maxCount(16),ModBlocks.CINNAMON_SIGN,ModBlocks.CINNAMON_WALL_SIGN)
         );
 
         // Misc
@@ -81,24 +84,47 @@ public class ModItems {
         QUIVER = registerItem("quiver", new TrinketItem(new Item.Settings().maxCount(1)));
         CRAFTING_EXPANDER = registerItem("crafting_expander", new SlotDisablerItem(new Item.Settings().maxCount(1),0,5));
         SCARF = registerItem("scarf", new ScarfItem(new Item.Settings().maxCount(1)));
+
+        // Hidden stuff
+
+        // Armor
+        WANDERERS_HELMET = registerHiddenItem("wanderers_helmet",
+            new WanderersArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.HELMET, new Item.Settings())
+        );
+        WANDERERS_CHESTPLATE = registerHiddenItem("wanderers_chestplate",
+            new WanderersArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.CHESTPLATE, new Item.Settings())
+        );
+        WANDERERS_LEGGINGS = registerHiddenItem("wanderers_leggings",
+            new WanderersArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.LEGGINGS, new Item.Settings())
+        );
+        WANDERERS_BOOTS = registerHiddenItem("wanderers_boots",
+            new WanderersArmorItem(ModArmourMaterials.WANDERER, ArmorItem.Type.BOOTS, new Item.Settings())
+        );
+
+        WANDERERS_SWORD = registerHiddenItem("wanderers_sword", new WanderersSwordItem(new Item.Settings().rarity(Rarity.EPIC)));
+
+        RAW_SCULKSTEEL = registerHiddenItem("raw_sculksteel", new Item(new Item.Settings()));
+        SCULKSTEEL_INGOT = registerHiddenItem("sculksteel_ingot", new Item(new Item.Settings()));
+        WAYWARD_MEDLEY = registerHiddenItem("wayward_medley", new Item(new Item.Settings()));
+        WAYWARD_CLOTH = registerHiddenItem("wayward_cloth", new Item(new Item.Settings()));
     }
 
-    public static HalberdItem registerHalberd(String name, ToolMaterial material, Item.Settings settings) {
+    private static HalberdItem registerHalberd(String name, ToolMaterial material, Item.Settings settings) {
         return registerItem(name,new HalberdItem(material, 5, -3f, settings));
     }
 
-    public static RapierItem registerRapier(String name, ToolMaterial material, Item.Settings settings) {
+    private static RapierItem registerRapier(String name, ToolMaterial material, Item.Settings settings) {
         return registerItem(name,new RapierItem(material, 2, -2f, settings));
     }
 
-    public static <T extends Item> T registerItem(String name, T item) {
+    private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, id(name), item);
         ITEMS.add(item);
         INCLUDE_ITEMGROUP.add(item);
         return item;
     }
 
-    public static <T extends Item> T registerItemExcludeGroup(String name, T item) {
+    private static <T extends Item> T registerHiddenItem(String name, T item) {
         Registry.register(Registries.ITEM, id(name), item);
         ITEMS.add(item);
         return item;

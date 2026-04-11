@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "thothpedia:sculksteel_ingot"
+  },
+  "base": {
+    "item": "minecraft:iron_sword"
+  },
+  "result": {
+    "item": "thothpedia:wanderers_sword"
+  },
+  "template": {
+    "item": "thothpedia:wayward_medley"
+  }
+}

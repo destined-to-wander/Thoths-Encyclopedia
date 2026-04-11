@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "thothpedia:sculksteel_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_chestplate"
+  },
+  "result": {
+    "item": "thothpedia:wanderers_chestplate"
+  },
+  "template": {
+    "item": "thothpedia:wayward_medley"
+  }
+}

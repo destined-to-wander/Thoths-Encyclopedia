@@ -156,9 +156,9 @@ public class PyrotechnicsTableScreenHandler extends ScreenHandler {
 
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                boolean retainTypeSlot = gunpowderSlot.hasStack() || TYPE_MODIFIER.test(typeSlot.getStack());
                 for (int i = 0; i < 20; i++) {
-                    if (i == 1 && (gunpowderSlot.hasStack() || TYPE_MODIFIER.test(typeSlot.getStack()))) continue;
-                    if (i >= 2 && i <= 3) continue;
+                    if ((i >= 2 && i <= 3) || (i == 1 && retainTypeSlot)) continue;
                     PyrotechnicsTableScreenHandler.this.slots.get(i).takeStack(1);
                 }
                 stack.getItem().onCraft(stack, player.getWorld(), player);
@@ -237,15 +237,15 @@ public class PyrotechnicsTableScreenHandler extends ScreenHandler {
             }
         }
 
-        if (!colorList.isEmpty()){
-            nbtCompound.putIntArray("Colors", colorList);
-        }
-        if (!fadeList.isEmpty()){
-            nbtCompound.putIntArray("FadeColors", fadeList);
-        }
+        if (!colorList.isEmpty()) nbtCompound.putIntArray("Colors", colorList);
+
+        if (!fadeList.isEmpty()) nbtCompound.putIntArray("FadeColors", fadeList);
 
         if (typeModifier.isOf(Items.FIREWORK_STAR)) {
-            type = FireworkRocketItem.Type.byId(typeModifier.getNbt().getByte("Type"));
+            byte typeByte = 0;
+            NbtCompound nbtData = typeModifier.getNbt();
+            if (nbtData != null && nbtData.contains("Type")) typeByte = nbtData.getByte("Type");
+            type = FireworkRocketItem.Type.byId(typeByte);
         } else {
             if (TYPE_MODIFIER.test(typeModifier)){
                 type = TYPE_MODIFIER_MAP.get(typeModifier.getItem());

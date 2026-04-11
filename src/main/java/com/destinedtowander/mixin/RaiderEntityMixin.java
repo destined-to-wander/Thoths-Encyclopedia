@@ -24,7 +24,7 @@ public abstract class RaiderEntityMixin extends HostileEntity {
     @Inject(at = @At("HEAD"), method = "onDeath")
     private void setWasntPartOfRaid(DamageSource damageSource, CallbackInfo ci) {
         if (this.getWorld() instanceof ServerWorld && ((LivingEntity)(Object)this) instanceof EvokerEntity evoker && evoker instanceof RaidTracker raidEntity) {
-            raidEntity.setWasPartOfRaid(evoker.hasActiveRaid());
+            raidEntity.thoth_sEncyclopedia$setWasPartOfRaid(evoker.hasActiveRaid());
         }
     }
 }

@@ -1,26 +1,43 @@
 {
-	"required": true,
-	"package": "com.destinedtowander.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"TridentItemMixin",
-
-		"LivingEntityMixin",
-		"TridentEntityMixin",
-		"PlayerEntityMixin",
-		"ExperienceOrbEntityMixin",
-
-		"RecipeBookOptionsMixin",
-
-		"RaiderEntityMixin",
-		"HostileEntityMixin",
-
-		"SlotMixin",
-
-		"inventory.InventoryScreenMixin",
-		"inventory.PlayerScreenHandlerMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.destinedtowander.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "com.destinedtowander.AdornMixinPlugin",
+  "mixins": [
+    "ExperienceOrbEntityMixin",
+    "HostileEntityMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "RaiderEntityMixin",
+    "RecipeBookOptionsMixin",
+    "TridentEntityMixin",
+    "TridentItemMixin",
+    "farmers_delight.RichSoilFarmlandBlockMixin",
+    "inventory.InventoryScreenMixin",
+    "inventory.ModSupportManagerMixin",
+    "inventory.PlayerEntityMixin",
+    "inventory.PlayerScreenHandlerMixin",
+    "inventory.SlotMixin",
+    "sculksteel.SculkVeinBlockMixin",
+    "sculksteel.SculkVeinGrowCheckerMixin",
+    "wanderer.CrossbowPosingMixin",
+    "wanderer.LivingEntityMixin",
+    "wanderer.PlayerEntityMixin",
+    "wanderer.ServerPlayerInteractionManagerMixin",
+    "wanderer.WanderingTraderEntityMixin",
+    "woodtypes.AxeItemMixin",
+    "woodtypes.BlockSetTypeMixin",
+    "woodtypes.WoodTypeMixin"
+  ],
+  "client": [
+    "wanderer.BipedEntityModelMixin",
+    "wanderer.ClientPlayerEntityMixin",
+    "wanderer.ClientPlayerInteractionManagerMixin",
+    "wanderer.HeldItemFeatureRendererMixin",
+    "wanderer.HeldItemRendererMixin",
+    "wanderer.PlayerEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

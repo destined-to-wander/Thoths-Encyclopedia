@@ -23,7 +23,7 @@ public class SlotDisablerItem extends TrinketItem {
         if (entity instanceof PlayerEntity player) {
             PlayerScreenHandler handler = player.playerScreenHandler;
             for (int i = disableStart; i < disableEnd; i++) ((ToggleableSlot) handler.getSlot(i)).setEnabled(false);
-            if (player.currentScreenHandler == handler) ((ClearableCraftingInventory)player.currentScreenHandler).dropCraftingSlots(player);
+            if (player.currentScreenHandler == handler) ((ClearableCraftingInventory)player.currentScreenHandler).thoths_Encyclopedia$dropCraftingSlots(player);
         }
     }
 
@@ -32,7 +32,7 @@ public class SlotDisablerItem extends TrinketItem {
         if (entity instanceof PlayerEntity player) {
             PlayerScreenHandler handler = player.playerScreenHandler;
             for (int i = disableStart; i < disableEnd; i++) ((ToggleableSlot) handler.getSlot(i)).setEnabled(true);
-            if (player.currentScreenHandler == handler) ((ClearableCraftingInventory)player.currentScreenHandler).dropCraftingSlots(player);
+            if (player.currentScreenHandler == handler) ((ClearableCraftingInventory)player.currentScreenHandler).thoths_Encyclopedia$dropCraftingSlots(player);
         }
     }
 }

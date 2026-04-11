@@ -5,6 +5,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class ModEnchantments {
+
+
+    static{
+
+    }
     private static Enchantment registerEnch(String name, Enchantment enchantment) {
         return Registry.register(Registries.ENCHANTMENT, name, enchantment);
     }

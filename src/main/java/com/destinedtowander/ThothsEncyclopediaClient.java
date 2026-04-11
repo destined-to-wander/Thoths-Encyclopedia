@@ -5,6 +5,8 @@ import com.destinedtowander.client.particle.LungeAttackParticle;
 import com.destinedtowander.client.particle.ModParticles;
 import com.destinedtowander.client.render.entity.ScarfTrinketRenderer;
 import com.destinedtowander.client.render.item.HalberdDynamicItemRenderer;
+import com.destinedtowander.client.render.item.WanderersSwordDynamicItemRenderer;
+import com.destinedtowander.common.cca.WanderersComponent;
 import com.destinedtowander.common.index.ModItems;
 import com.destinedtowander.common.index.ModScreens;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
@@ -13,14 +15,14 @@ import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeableItem;
 
 import static com.destinedtowander.ThothsEncyclopedia.id;
 
-public class ThothsEncyclopediaClient implements ClientModInitializer {
-    public static final EntityModelLayer SCARF_LAYER = new EntityModelLayer(id("scarf"), "main");
 
+public class ThothsEncyclopediaClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         // Built-in Item Renderers
@@ -29,15 +31,26 @@ public class ThothsEncyclopediaClient implements ClientModInitializer {
         BuiltinItemRendererRegistry.INSTANCE.register(ModItems.GOLD_HALBERD, new HalberdDynamicItemRenderer());
         BuiltinItemRendererRegistry.INSTANCE.register(ModItems.NETHERITE_HALBERD, new HalberdDynamicItemRenderer());
 
+        BuiltinItemRendererRegistry.INSTANCE.register(ModItems.WANDERERS_SWORD, new WanderersSwordDynamicItemRenderer());
+
         // Force load the weapon models (otherwise since they're never called they wouldn't be loaded by default)
         ModelLoadingPlugin.register(pluginContext -> pluginContext.addModels(HalberdDynamicItemRenderer.MODELS_TO_REGISTER));
+        ModelLoadingPlugin.register(pluginContext -> pluginContext.addModels(WanderersSwordDynamicItemRenderer.MODELS_TO_REGISTER));
 
         // Recipebook
         RecipeBookGroups.init();
 
+        // Wanderer sword predicates
+        ModelPredicateProviderRegistry.register(ModItems.WANDERERS_SWORD, id("blocking"),
+            (stack, world, entity, seed) ->
+                entity instanceof PlayerEntity player && WanderersComponent.get(player).isBlocking() ? 1.0F : 0.0F
+        );
+        ModelPredicateProviderRegistry.register(ModItems.WANDERERS_SWORD, id("parrying"),
+            (stack, world, entity, seed) ->
+                entity instanceof PlayerEntity player && WanderersComponent.get(player).isParrying() ? 1.0F : 0.0F
+        );
+
         // Particles
-        ModParticles.register();
-        ModParticles.registerFactories();
         ParticleFactoryRegistry.getInstance().register(ModParticles.LUNGE_ATTACK, LungeAttackParticle.Factory::new);
 
         // Pyro table

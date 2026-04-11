@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "thothpedia:sculksteel_ingot"
+    },
+    "#": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " S ",
+    "S#S",
+    " S "
+  ],
+  "result": {
+    "item": "minecraft:recovery_compass"
+  },
+  "show_notification": true
+}

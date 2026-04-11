@@ -1,0 +1,42 @@
+{
+  "parent": "item/generated",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, -90, 45],
+      "translation": [0, 12.5, 0],
+      "scale": [1.7, 1.7, 0.85]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 90, 45],
+      "translation": [0, 12.5, 0],
+      "scale": [1.7, 1.7, 0.85]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, -90, 45],
+      "translation": [1, 9, 0.25],
+      "scale": [1.36, 1.36, 0.68]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, -90, 45],
+      "translation": [-1, 9, 0.25],
+      "scale": [1.36, 1.36, 0.68]
+    }
+  },
+  "textures": {
+    "layer0": "thothpedia:item/wanderers_sword_in_hand"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thothpedia:blocking": 1
+      },
+      "model": "thothpedia:item/wanderers_sword_blocking"
+    },
+    {
+      "predicate": {
+        "thothpedia:parrying": 1
+      },
+      "model": "thothpedia:item/wanderers_sword_parrying"
+    }
+  ]
+}

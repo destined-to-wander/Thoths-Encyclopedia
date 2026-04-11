@@ -20,7 +20,6 @@ public class ThothsEncyclopediaASM implements Runnable{
         String recipeBookTypeTarget = remapper.mapClassName("intermediary", "net.minecraft.class_5421");
         ClassTinkerers.enumBuilder(recipeBookTypeTarget).addEnum(FIRING_RECIPE_BOOK_TYPE).build();
 
-
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
             String recipeBookGroupTarget = remapper.mapClassName("intermediary", "net.minecraft.class_314");
             String itemStackParamType = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_1799") + ";";

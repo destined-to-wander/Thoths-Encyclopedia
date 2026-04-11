@@ -1,0 +1,25 @@
+{
+	"parent": "thothpedia:item/wanderers_sword_in_hand",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -5, 135],
+			"translation": [-12.25, -2, -1],
+			"scale": [1.7, 1.7, 0.85]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [30, 0, 100],
+			"translation": [-9.75, 3.75, 3],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 0, 110],
+			"translation": [-8.75, 5, 0.25],
+			"scale": [1.36, 1.36, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 0, -60],
+			"translation": [8.75, 5, 0.25],
+			"scale": [1.36, 1.36, 0.68]
+		}
+	}
+}

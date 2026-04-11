@@ -1,3 +1,4 @@
 accessWidener v1 named
 accessible class net/minecraft/recipe/book/RecipeBookOptions$CategoryOption
+accessible class net/minecraft/block/SculkVeinBlock$SculkVeinGrowChecker
 accessible method net/minecraft/screen/CraftingScreenHandler updateResult (Lnet/minecraft/screen/ScreenHandler;Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/inventory/CraftingResultInventory;)V

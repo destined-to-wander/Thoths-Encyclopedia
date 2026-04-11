@@ -43,14 +43,14 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
     }
 
     @Inject(method = "drawForeground", at = @At(value = "TAIL"))
-    private void drawTextras(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
+    private void drawKnapsackText(DrawContext context, int mouseX, int mouseY, CallbackInfo ci) {
         if (this.client != null) {
             Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(this.client.player);
             boolean trinketEnabled = component.isPresent();
-            if (trinketEnabled){
+            if (trinketEnabled) {
                 if (component.get().isEquipped(ModItems.KNAPSACK)) context.drawText(
                     this.textRenderer, Text.translatable("thothpedia.container.knapsack"),
-                    7, -59,
+                    7, 176,
                     4210752, false
                 );
             }
@@ -64,7 +64,7 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
             boolean trinketEnabled = component.isPresent();
             if (trinketEnabled) {
                 if (component.get().isEquipped(ModItems.KNAPSACK)) context.drawTexture(EXPANSIONS_1,
-                    this.x, this.y - 64,
+                    this.x, this.y + 170,
                     0, 72, 176,60);
                 if (component.get().isEquipped(ModItems.CRAFTING_EXPANDER)) context.drawTexture(EXPANSIONS_1,
                     this.x + 88, this.y - 10,
@@ -80,7 +80,7 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
         Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(this.client.player);
         if (component.isPresent()) {
             if (component.get().isEquipped(ModItems.KNAPSACK)) {
-                int knapsackY = top - 64;
+                int knapsackY = top + 170;
                 if (mouseX >= left && mouseX < left + 176
                     && mouseY >= knapsackY && mouseY < knapsackY + 60) return false;
             }

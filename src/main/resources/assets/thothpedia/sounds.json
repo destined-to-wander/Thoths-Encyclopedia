@@ -1,0 +1,14 @@
+{
+  "item.thothpedia.sword_parry": {
+    "sounds": [
+      "thothpedia:sword_parry"
+    ],
+    "subtitle": "subtitles.item.thothpedia.sword_parry"
+  },
+  "item.thothpedia.sword_block": {
+    "sounds": [
+      "thothpedia:sword_block"
+    ],
+    "subtitle": "subtitles.item.thothpedia.sword_block"
+  }
+}

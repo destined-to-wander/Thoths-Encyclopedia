@@ -25,22 +25,22 @@ public abstract class ExperienceOrbEntityMixin extends Entity {
     }
 
     @Shadow
-    public abstract int getMendingRepairAmount(int experienceAmount);
+    protected abstract int getMendingRepairAmount(int experienceAmount);
 
     @Shadow
-    public abstract int getMendingRepairCost(int repairAmount);
+    protected abstract int getMendingRepairCost(int repairAmount);
 
     @Shadow
-    int amount;
+    private int amount;
 
     @Shadow
-    public abstract int repairPlayerGears(PlayerEntity player, int amount);
+    protected abstract int repairPlayerGears(PlayerEntity player, int amount);
 
     @Inject(method = "repairPlayerGears", at = @At("HEAD"),cancellable = true)
     private void mendingRewprk(PlayerEntity player, int amount, CallbackInfoReturnable<Integer> cir) {
         Map.Entry<EquipmentSlot, ItemStack> entry = EnchantmentHelper.chooseEquipmentWith(Enchantments.MENDING, player, ItemStack::isDamaged);
         if (entry != null) {
-            ItemStack itemStack = (ItemStack)entry.getValue();
+            ItemStack itemStack = entry.getValue();
             int i = Math.min(this.getMendingRepairAmount(this.amount), itemStack.getDamage());
             if (itemStack.getDamage() > itemStack.getMaxDamage() / 4){
                 int repairAmount = Math.max(itemStack.getDamage() - i,itemStack.getMaxDamage() / 4);

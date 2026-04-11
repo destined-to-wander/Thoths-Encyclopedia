@@ -10,5 +10,6 @@ public class ThothsEncyclopediaDataGenerator implements DataGeneratorEntrypoint 
         pack.addProvider(ModLootTableGen::new);
         pack.addProvider(ModBlockTagGen::new);
         pack.addProvider(ModModelGen::new);
+        pack.addProvider(ModRecipeGen::new);
     }
 }

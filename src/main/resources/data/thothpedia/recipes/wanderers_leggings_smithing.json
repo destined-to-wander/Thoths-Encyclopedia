@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "thothpedia:sculksteel_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "result": {
+    "item": "thothpedia:wanderers_leggings"
+  },
+  "template": {
+    "item": "thothpedia:wayward_medley"
+  }
+}

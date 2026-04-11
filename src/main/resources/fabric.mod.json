@@ -25,6 +25,9 @@
 		],
 		"cardinal-components": [
 			"com.destinedtowander.common.index.ModComponents"
+		],
+		"emi": [
+			"com.destinedtowander.compat.emi.EMIPlugin"
 		]
 	},
 	"mixins": [
