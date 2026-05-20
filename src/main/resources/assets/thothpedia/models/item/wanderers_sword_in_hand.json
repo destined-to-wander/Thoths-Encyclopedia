@@ -23,8 +23,10 @@
     }
   },
   "textures": {
-    "layer0": "thothpedia:item/wanderers_sword_in_hand"
+    "layer0": "thothpedia:item/wanderers_sword_in_hand_overlay",
+    "layer1": "thothpedia:item/wanderers_sword_in_hand"
   },
+  "gui_light": "front",
   "overrides": [
     {
       "predicate": {

@@ -21,8 +21,9 @@ import net.minecraft.item.DyeableItem;
 
 import static com.destinedtowander.ThothsEncyclopedia.id;
 
-
 public class ThothsEncyclopediaClient implements ClientModInitializer {
+    public static PlayerEntity renderingPlayer = null;
+
     @Override
     public void onInitializeClient() {
         // Built-in Item Renderers

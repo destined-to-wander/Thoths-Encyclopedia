@@ -5,7 +5,8 @@
 	"name": "Thoth's Encyclopedia",
 	"description": "Various reworks and additions for a more Vanilla+ Minecraft",
 	"authors": [
-		"DestinedToWander"
+		"DestinedToWander",
+		"kiwekiwi"
 	],
 	"license": "CC0-1.0",
 	"icon": "assets/thothpedia/icon.png",

@@ -1,15 +1,18 @@
 package com.destinedtowander.mixin.wanderer;
 
 import com.destinedtowander.common.cca.WanderersComponent;
+import com.destinedtowander.common.index.ModEnchantments;
 import com.destinedtowander.common.index.ModItems;
 import com.destinedtowander.common.index.ModSoundEvents;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -42,24 +45,32 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     private float swordBlock(PlayerEntity entity, DamageSource source, float amount, Operation<Float> original) {
         float base = original.call(entity, source, amount);
         WanderersComponent wanderersComponent = WanderersComponent.get(entity);
+        // parrying
         if (wanderersComponent.isParrying()) {
             Vec3d damagePos = source.getPosition();
             if (damagePos != null) {
                 Vec3d rotVec = this.getRotationVec(1.0F);
                 Vec3d difference = damagePos.relativize(this.getEyePos()).normalize();
                 double angle = difference.dotProduct(rotVec);
-                if (angle < (double)-1.0F || angle > (double)1.0F) return base;
+                if (angle < -1.0 || angle > 1.0) return base;
 
                 if (angle < -0.35) {
                     World world = this.getWorld();
                     if (world instanceof ServerWorld serverWorld) serverWorld.playSoundFromEntity(null, this,
                         ModSoundEvents.SWORD_PARRY, SoundCategory.HOSTILE, 1.5F, 1.0F + this.getWorld().random.nextFloat() * 0.4F);
 
-                    wanderersComponent.stopParry();
+                    if (EnchantmentHelper.getLevel(ModEnchantments.FEEDBACK, this.getActiveItem()) > 0 && source.getAttacker() instanceof LivingEntity attacker) {
+                        if (source.getSource() != source.getAttacker()) ;// figure out how to reflect arrows idk
+                        DamageSource feedback = this.getDamageSources().create();
+                        attacker.damage(feedback, base);
+                    }
+
+                    wanderersComponent.absorbDamage(base);
                     return 0;
                 }
             }
         }
+        // blocking
         if (wanderersComponent.isBlocking()) {
             Vec3d damagePos = source.getPosition();
             if (damagePos != null) {

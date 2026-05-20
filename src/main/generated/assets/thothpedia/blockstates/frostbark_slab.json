@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "thothpedia:block/frostbark_slab"
+    },
+    "type=double": {
+      "model": "thothpedia:block/frostbark_planks"
+    },
+    "type=top": {
+      "model": "thothpedia:block/frostbark_slab_top"
+    }
+  }
+}

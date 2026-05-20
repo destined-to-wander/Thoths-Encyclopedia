@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "thothpedia:block/cinnamon_sapling"
+  }
+}

@@ -2,6 +2,7 @@ package com.destinedtowander.common.datagen;
 
 import com.destinedtowander.common.index.ModBlocks;
 import com.destinedtowander.common.index.ModItems;
+import com.destinedtowander.common.index.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
@@ -28,15 +29,17 @@ public class ModRecipeGen extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WAYWARD_MEDLEY).input(ModItems.WAYWARD_CLOTH).input(Items.LEATHER).input(Items.PHANTOM_MEMBRANE)
             .criterion("has_wayward_cloth", conditionsFromItem(ModItems.WAYWARD_CLOTH)).offerTo(consumer);
 
-        offerShapelessRecipe(consumer, ModBlocks.CINNAMON_PLANKS, ModBlocks.CINNAMON_LOG, "thothpedia",4);
-        offerShapelessRecipe(consumer, ModBlocks.CINNAMON_PLANKS, ModBlocks.STRIPPED_CINNAMON_LOG, "thothpedia",4);
-        offerShapelessRecipe(consumer, ModBlocks.CINNAMON_PLANKS, ModBlocks.CINNAMON_WOOD, "thothpedia",4);
-        offerShapelessRecipe(consumer, ModBlocks.CINNAMON_PLANKS, ModBlocks.STRIPPED_CINNAMON_WOOD, "thothpedia",4);
-
         offerQuadBarkBlockRecipe(consumer, ModBlocks.CINNAMON_WOOD, ModBlocks.CINNAMON_LOG);
         offerQuadBarkBlockRecipe(consumer, ModBlocks.STRIPPED_CINNAMON_WOOD, ModBlocks.STRIPPED_CINNAMON_LOG);
+        offerHangingSignRecipe(consumer, ModBlocks.CINNAMON_HANGING_SIGN, ModBlocks.STRIPPED_CINNAMON_LOG);
 
-        offerPlanksRecipe(consumer, ModBlocks.CINNAMON_PLANKS, TagKey.of());
+        offerPlanksRecipe(consumer, ModBlocks.CINNAMON_PLANKS, ModTags.ModItemTags.CINNAMON_LOGS, 4);
+
+        offerQuadBarkBlockRecipe(consumer, ModBlocks.FROSTBARK_WOOD, ModBlocks.FROSTBARK_LOG);
+        offerQuadBarkBlockRecipe(consumer, ModBlocks.STRIPPED_FROSTBARK_WOOD, ModBlocks.STRIPPED_FROSTBARK_LOG);
+        offerHangingSignRecipe(consumer, ModBlocks.FROSTBARK_HANGING_SIGN, ModBlocks.STRIPPED_FROSTBARK_LOG);
+
+        offerPlanksRecipe(consumer, ModBlocks.FROSTBARK_PLANKS, ModTags.ModItemTags.FROSTBARK_LOGS, 4);
     }
 
     public static void offerQuadBarkBlockRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {

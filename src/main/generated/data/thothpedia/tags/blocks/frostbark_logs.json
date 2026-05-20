@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thothpedia:frostbark_log",
+    "thothpedia:stripped_frostbark_log",
+    "thothpedia:frostbark_wood",
+    "thothpedia:stripped_frostbark_wood"
+  ]
+}

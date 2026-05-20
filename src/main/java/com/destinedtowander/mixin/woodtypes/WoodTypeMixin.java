@@ -20,5 +20,7 @@ public class WoodTypeMixin {
     private static void addCustomTypes(CallbackInfo ci) {
         register(ModWoodTypes.CINNAMON);
         register(ModWoodTypes.LEMON);
+        register(ModWoodTypes.FROSTBARK);
+        register(ModWoodTypes.AMETHINE);
     }
 }

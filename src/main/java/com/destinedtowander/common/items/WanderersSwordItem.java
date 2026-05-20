@@ -3,10 +3,12 @@ package com.destinedtowander.common.items;
 import com.destinedtowander.ThothsEncyclopedia;
 import com.destinedtowander.common.cca.WanderersComponent;
 import com.destinedtowander.common.index.ModComponents;
+import com.destinedtowander.common.index.ModEnchantments;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -32,17 +34,17 @@ public class WanderersSwordItem extends SwordItem implements Vanishable {
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     public WanderersSwordItem(Settings settings) {
-        super(WandererToolMaterial.INSTANCE, 8, -2.6F, settings);
+        super(WandererToolMaterial.INSTANCE, 7, -2.7F, settings);
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 7.5F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", 7, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", -2.7, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", 0.50F, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", 1.25F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", 0.75F, EntityAttributeModifier.Operation.ADDITION));
+        builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", 1.5F, EntityAttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();
     }
 
     public float getAttackDamage() {
-        return 12.0F;
+        return 11.F;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -51,8 +53,10 @@ public class WanderersSwordItem extends SwordItem implements Vanishable {
         else {
             user.setCurrentHand(hand);
             if (!user.getItemCooldownManager().isCoolingDown(itemStack.getItem())) {
-                WanderersComponent.get(user).startParry();
-                user.getItemCooldownManager().set(itemStack.getItem(), 40);
+                if (EnchantmentHelper.getLevel(ModEnchantments.FEEDBACK, itemStack) > 0){
+                    WanderersComponent.get(user).startFeedback();
+                } else WanderersComponent.get(user).startParry();
+                user.getItemCooldownManager().set(itemStack.getItem(), 100);
             }
             WanderersComponent.get(user).setBlocking(true);
             return TypedActionResult.consume(itemStack);

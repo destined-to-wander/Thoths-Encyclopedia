@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "thothpedia:block/frostbark_door_bottom",
+    "top": "thothpedia:block/frostbark_door_top"
+  }
+}

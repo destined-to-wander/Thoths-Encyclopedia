@@ -23,6 +23,8 @@ public class AxeItemMixin {
     private static final Map<Block, Block> STRIPPED_BLOCKS = new ImmutableMap.Builder<Block, Block>()
         .put(ModBlocks.CINNAMON_WOOD, ModBlocks.STRIPPED_CINNAMON_WOOD)
         .put(ModBlocks.CINNAMON_LOG, ModBlocks.STRIPPED_CINNAMON_LOG)
+        .put(ModBlocks.FROSTBARK_WOOD, ModBlocks.STRIPPED_FROSTBARK_WOOD)
+        .put(ModBlocks.FROSTBARK_LOG, ModBlocks.STRIPPED_FROSTBARK_LOG)
         .build();
 
     @ModifyReturnValue(method = "getStrippedState", at = @At("TAIL"))

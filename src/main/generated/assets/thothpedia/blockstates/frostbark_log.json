@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "thothpedia:block/frostbark_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "thothpedia:block/frostbark_log"
+    },
+    "axis=z": {
+      "model": "thothpedia:block/frostbark_log_horizontal",
+      "x": 90
+    }
+  }
+}

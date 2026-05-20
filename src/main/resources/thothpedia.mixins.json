@@ -33,8 +33,10 @@
     "wanderer.BipedEntityModelMixin",
     "wanderer.ClientPlayerEntityMixin",
     "wanderer.ClientPlayerInteractionManagerMixin",
+    "wanderer.DrawContextMixin",
     "wanderer.HeldItemFeatureRendererMixin",
     "wanderer.HeldItemRendererMixin",
+    "wanderer.ItemRendererMixin",
     "wanderer.PlayerEntityRendererMixin"
   ],
   "injectors": {

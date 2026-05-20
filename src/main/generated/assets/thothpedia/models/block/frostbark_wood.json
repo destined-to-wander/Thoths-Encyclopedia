@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "thothpedia:block/frostbark_log",
+    "side": "thothpedia:block/frostbark_log"
+  }
+}

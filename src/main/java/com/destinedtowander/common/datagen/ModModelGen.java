@@ -37,6 +37,7 @@ public class ModModelGen extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
         generator.registerSimpleCubeAll(ModBlocks.SCULK_CHARGED_AMALGAM);
 
+        // Cinnamon
         generator.registerSimpleCubeAll(ModBlocks.CINNAMON_PLANKS);
         final TextureMap cinnamonPlanksTexture = TextureMap.all(id("block/cinnamon_planks"))
             .put(TextureKey.PARTICLE,id("block/cinnamon_planks"));
@@ -105,5 +106,75 @@ public class ModModelGen extends FabricModelProvider {
         generator.excludeFromSimpleItemModelGeneration(ModBlocks.CINNAMON_WALL_SIGN);
 
         generator.registerFlowerPotPlant(ModBlocks.CINNAMON_SAPLING, ModBlocks.POTTED_CINNAMON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        
+        // Frostbark
+        generator.registerSimpleCubeAll(ModBlocks.FROSTBARK_PLANKS);
+        final TextureMap frostbarkPlanksTexture = TextureMap.all(id("block/frostbark_planks"))
+            .put(TextureKey.PARTICLE,id("block/frostbark_planks"));
+        generator.registerLog(ModBlocks.FROSTBARK_LOG)
+            .log(ModBlocks.FROSTBARK_LOG)
+            .wood(ModBlocks.FROSTBARK_WOOD);
+        generator.registerLog(ModBlocks.STRIPPED_FROSTBARK_LOG)
+            .log(ModBlocks.STRIPPED_FROSTBARK_LOG)
+            .wood(ModBlocks.STRIPPED_FROSTBARK_WOOD);
+
+        final Identifier frostbarkPressurePlate = Models.PRESSURE_PLATE_UP.upload(ModBlocks.FROSTBARK_PRESSURE_PLATE, frostbarkPlanksTexture, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(ModBlocks.FROSTBARK_PRESSURE_PLATE,
+            frostbarkPressurePlate,
+            Models.PRESSURE_PLATE_DOWN.upload(ModBlocks.FROSTBARK_PRESSURE_PLATE, frostbarkPlanksTexture, generator.modelCollector)
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_PRESSURE_PLATE, frostbarkPressurePlate);
+
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(ModBlocks.FROSTBARK_FENCE,
+            Models.FENCE_POST.upload(ModBlocks.FROSTBARK_FENCE, frostbarkPlanksTexture, generator.modelCollector),
+            Models.FENCE_SIDE.upload(ModBlocks.FROSTBARK_FENCE, frostbarkPlanksTexture, generator.modelCollector)
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_FENCE, Models.FENCE_INVENTORY.upload(ModBlocks.FROSTBARK_FENCE, frostbarkPlanksTexture, generator.modelCollector));
+
+        final Identifier frostbarkFenceGateModel = Models.TEMPLATE_FENCE_GATE.upload(ModBlocks.FROSTBARK_FENCE_GATE, frostbarkPlanksTexture, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createFenceGateBlockState(ModBlocks.FROSTBARK_FENCE_GATE,
+            Models.TEMPLATE_FENCE_GATE_OPEN.upload(ModBlocks.FROSTBARK_FENCE_GATE, frostbarkPlanksTexture, generator.modelCollector),
+            frostbarkFenceGateModel,
+            Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(ModBlocks.FROSTBARK_FENCE_GATE, frostbarkPlanksTexture, generator.modelCollector),
+            Models.TEMPLATE_FENCE_GATE_WALL.upload(ModBlocks.FROSTBARK_FENCE_GATE, frostbarkPlanksTexture, generator.modelCollector),
+            false
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_FENCE_GATE, frostbarkFenceGateModel);
+
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(ModBlocks.FROSTBARK_BUTTON,
+            Models.BUTTON.upload(ModBlocks.FROSTBARK_BUTTON, frostbarkPlanksTexture, generator.modelCollector),
+            Models.BUTTON_PRESSED.upload(ModBlocks.FROSTBARK_BUTTON, frostbarkPlanksTexture, generator.modelCollector)
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_BUTTON, Models.BUTTON_INVENTORY.upload(ModBlocks.FROSTBARK_BUTTON, frostbarkPlanksTexture, generator.modelCollector));
+
+        final Identifier frostbarkStairsModel = Models.STAIRS.upload(ModBlocks.FROSTBARK_STAIRS, frostbarkPlanksTexture, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(ModBlocks.FROSTBARK_STAIRS,
+            Models.INNER_STAIRS.upload(ModBlocks.FROSTBARK_STAIRS, frostbarkPlanksTexture, generator.modelCollector),
+            frostbarkStairsModel,
+            Models.OUTER_STAIRS.upload(ModBlocks.FROSTBARK_STAIRS, frostbarkPlanksTexture, generator.modelCollector)
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_STAIRS, frostbarkStairsModel);
+
+        final Identifier frostbarkSlabModel = Models.SLAB.upload(ModBlocks.FROSTBARK_SLAB, frostbarkPlanksTexture, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(ModBlocks.FROSTBARK_SLAB,
+            frostbarkSlabModel,
+            Models.SLAB_TOP.upload(ModBlocks.FROSTBARK_SLAB, frostbarkPlanksTexture, generator.modelCollector),
+            id("block/frostbark_planks")
+        ));
+        generator.registerParentedItemModel(ModBlocks.FROSTBARK_SLAB, frostbarkSlabModel);
+
+        generator.registerDoor(ModBlocks.FROSTBARK_DOOR);
+        generator.registerOrientableTrapdoor(ModBlocks.FROSTBARK_TRAPDOOR);
+        generator.registerSingleton(ModBlocks.FROSTBARK_LEAVES, TexturedModel.LEAVES);
+
+        generator.registerHangingSign(ModBlocks.STRIPPED_FROSTBARK_LOG, ModBlocks.FROSTBARK_HANGING_SIGN, ModBlocks.FROSTBARK_WALL_HANGING_SIGN);
+
+        Identifier frostbarkSignModel = Models.PARTICLE.upload(ModBlocks.FROSTBARK_SIGN, TextureMap.particle(ModBlocks.FROSTBARK_PLANKS), generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(ModBlocks.FROSTBARK_SIGN, frostbarkSignModel));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(ModBlocks.FROSTBARK_WALL_SIGN, frostbarkSignModel));
+        generator.registerItemModel(ModBlocks.FROSTBARK_SIGN.asItem());
+        generator.excludeFromSimpleItemModelGeneration(ModBlocks.FROSTBARK_WALL_SIGN);
+
+        generator.registerFlowerPotPlant(ModBlocks.FROSTBARK_SAPLING, ModBlocks.POTTED_FROSTBARK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 }

@@ -1,6 +1,8 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "thothpedia:item/wanderers_sword"
-  }
+    "layer0": "thothpedia:item/wanderers_sword_overlay",
+    "layer1": "thothpedia:item/wanderers_sword"
+  },
+  "gui_light": "front"
 }

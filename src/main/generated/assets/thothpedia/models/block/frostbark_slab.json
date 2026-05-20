@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "thothpedia:block/frostbark_planks",
+    "side": "thothpedia:block/frostbark_planks",
+    "top": "thothpedia:block/frostbark_planks"
+  }
+}

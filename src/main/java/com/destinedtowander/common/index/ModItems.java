@@ -59,6 +59,8 @@ public class ModItems {
     public static final Item WAYWARD_CLOTH;
     public static final Item CINNAMON_HANGING_SIGN;
     public static final Item CINNAMON_SIGN;
+    public static final Item FROSTBARK_HANGING_SIGN;
+    public static final Item FROSTBARK_SIGN;
 
     static {
         // Weapons
@@ -77,6 +79,12 @@ public class ModItems {
         );
         CINNAMON_SIGN = registerItem("cinnamon_sign",
             new SignItem(new Item.Settings().maxCount(16),ModBlocks.CINNAMON_SIGN,ModBlocks.CINNAMON_WALL_SIGN)
+        );
+        FROSTBARK_HANGING_SIGN = registerItem("frostbark_hanging_sign",
+            new HangingSignItem(ModBlocks.FROSTBARK_HANGING_SIGN,ModBlocks.FROSTBARK_WALL_HANGING_SIGN, new Item.Settings().maxCount(16))
+        );
+        FROSTBARK_SIGN = registerItem("frostbark_sign",
+            new SignItem(new Item.Settings().maxCount(16),ModBlocks.FROSTBARK_SIGN,ModBlocks.FROSTBARK_WALL_SIGN)
         );
 
         // Misc

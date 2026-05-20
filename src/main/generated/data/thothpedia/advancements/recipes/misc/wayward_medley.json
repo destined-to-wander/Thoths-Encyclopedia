@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thothpedia:wayward_medley"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wayward_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thothpedia:wayward_cloth"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wayward_cloth",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thothpedia:wayward_medley"
+    ]
+  },
+  "sends_telemetry_event": false
+}

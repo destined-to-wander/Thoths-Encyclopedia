@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "thothpedia:block/frostbark_leaves"
+  }
+}

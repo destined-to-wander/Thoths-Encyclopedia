@@ -1,0 +1,6 @@
+// 1.20.1	2026-04-15T20:42:23.888399	Thoth's Encyclopedia/Tags for minecraft:block
+9c1b05cbb74e7401909c839b1e3f386a01dce445 data/minecraft/tags/blocks/needs_iron_tool.json
+0aa71b4ff717d8accc4fce16e932a336a0f6747d data/minecraft/tags/blocks/mineable/pickaxe.json
+09003fcf6985fe8e3a3734220e46f1f88cc174ea data/thothpedia/tags/blocks/frostbark_logs.json
+22dd197446653cfb1696fe34dde09f745107c76c data/minecraft/tags/blocks/mineable/axe.json
+7c9bd5b4872916e5a2c0cf8e985e275c6df235d1 data/thothpedia/tags/blocks/cinnamon_logs.json

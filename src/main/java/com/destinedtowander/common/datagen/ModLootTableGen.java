@@ -40,6 +40,27 @@ public class ModLootTableGen extends FabricBlockLootTableProvider {
             leavesDrops(ModBlocks.CINNAMON_LEAVES, ModBlocks.CINNAMON_SAPLING, SAPLING_DROP_CHANCE)
         );
         addPottedPlantDrops(ModBlocks.POTTED_CINNAMON_SAPLING);
+        
+        addDrop(ModBlocks.FROSTBARK_PLANKS);
+        addDrop(ModBlocks.FROSTBARK_LOG);
+        addDrop(ModBlocks.FROSTBARK_WOOD);
+        addDrop(ModBlocks.STRIPPED_FROSTBARK_LOG);
+        addDrop(ModBlocks.STRIPPED_FROSTBARK_WOOD);
+        addDrop(ModBlocks.FROSTBARK_BUTTON);
+        addDrop(ModBlocks.FROSTBARK_DOOR, doorDrops(ModBlocks.FROSTBARK_DOOR));
+        addDrop(ModBlocks.FROSTBARK_TRAPDOOR);
+        addDrop(ModBlocks.FROSTBARK_STAIRS);
+        addDrop(ModBlocks.FROSTBARK_SLAB, slabDrops(ModBlocks.FROSTBARK_SLAB));
+        addDrop(ModBlocks.FROSTBARK_FENCE);
+        addDrop(ModBlocks.FROSTBARK_FENCE_GATE);
+        addDrop(ModBlocks.FROSTBARK_SIGN);
+        addDrop(ModBlocks.FROSTBARK_HANGING_SIGN);
+        addDrop(ModBlocks.FROSTBARK_SAPLING);
+        addDrop(ModBlocks.FROSTBARK_PRESSURE_PLATE);
+        addDrop(ModBlocks.FROSTBARK_LEAVES,
+            leavesDrops(ModBlocks.FROSTBARK_LEAVES, ModBlocks.FROSTBARK_SAPLING, SAPLING_DROP_CHANCE)
+        );
+        addPottedPlantDrops(ModBlocks.POTTED_FROSTBARK_SAPLING);
 
         LootTable.Builder amalgamTable = dropsWithSilkTouch(
             ModBlocks.SCULK_CHARGED_AMALGAM,
@@ -50,7 +71,5 @@ public class ModLootTableGen extends FabricBlockLootTableProvider {
             )
         );
         addDrop(ModBlocks.SCULK_CHARGED_AMALGAM, amalgamTable);
-
-        System.out.println(Registries.BLOCK.getId(ModBlocks.CINNAMON_PLANKS));
     }
 }

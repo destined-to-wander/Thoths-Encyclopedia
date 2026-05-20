@@ -8,7 +8,8 @@ public class ThothsEncyclopediaDataGenerator implements DataGeneratorEntrypoint 
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
         pack.addProvider(ModLootTableGen::new);
-        pack.addProvider(ModBlockTagGen::new);
+        pack.addProvider(ModTagGen.ModBlockTagGen::new);
+        pack.addProvider(ModTagGen.ModItemTagGen::new);
         pack.addProvider(ModModelGen::new);
         pack.addProvider(ModRecipeGen::new);
     }

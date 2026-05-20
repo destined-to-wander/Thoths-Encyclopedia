@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "thothpedia:block/cinnamon_door_bottom",
+    "top": "thothpedia:block/cinnamon_door_top"
+  }
+}

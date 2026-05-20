@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thothpedia:cinnamon_log",
+    "thothpedia:stripped_cinnamon_log",
+    "thothpedia:cinnamon_wood",
+    "thothpedia:stripped_cinnamon_wood"
+  ]
+}

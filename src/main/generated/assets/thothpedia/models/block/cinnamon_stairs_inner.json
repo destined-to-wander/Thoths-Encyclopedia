@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "thothpedia:block/cinnamon_planks",
+    "side": "thothpedia:block/cinnamon_planks",
+    "top": "thothpedia:block/cinnamon_planks"
+  }
+}

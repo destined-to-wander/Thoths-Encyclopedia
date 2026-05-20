@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_sculksteel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thothpedia:raw_sculksteel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sculksteel_ingot_from_blasting_raw_sculksteel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_sculksteel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sculksteel_ingot_from_blasting_raw_sculksteel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

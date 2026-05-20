@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thothpedia:wayward_cloth"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    }
+  ],
+  "result": {
+    "item": "thothpedia:wayward_medley"
+  }
+}
